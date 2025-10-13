@@ -4,21 +4,25 @@ pipeline {
         stage('SCM'){
             steps{
                     echo ">>>>>  stage 'SCM' is commplete............"
+                    echo ">>>>>  running from github is commplete............"
                    }  }
 
         stage('Build'){
             steps{
                     echo ">>>>>  stage 'Build' is commplete.........."
+                    echo ">>>>>  running from github is commplete............"
                   }
                         }
          stage('Test'){
             steps{
-                    echo ">>>>>  stage 'Test' is commplete..........."                
+                    echo ">>>>>  stage 'Test' is commplete..........."   
+                    echo ">>>>>  running from github is commplete............"
                   }
                        }   
          stage('Deploy'){
             steps{
-                    echo ">>>>>  stage 'Deploy' is commplete........."                 
+                    echo ">>>>>  stage 'Deploy' is commplete........."         
+                    echo ">>>>>  running from github is commplete............"
                   }
                        }                                   
         }
