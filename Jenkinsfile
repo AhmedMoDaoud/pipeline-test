@@ -13,9 +13,20 @@ pipeline {
       }
     }
 
-    stage('Test') {
-      steps {
-        echo '>>>>>  stage \'Test\' is commplete...........'
+    stage('Test1') {
+      parallel {
+        stage('Test1') {
+          steps {
+            echo '>>>>>  stage \'Test1\' is commplete...........'
+          }
+        }
+
+        stage('Test2') {
+          steps {
+            echo '>>>>>  stage \'Test2\' is commplete...........'
+          }
+        }
+
       }
     }
 
