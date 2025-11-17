@@ -1,29 +1,31 @@
 pipeline {
     agent any
     stages{
-        stage('SCM'){
+        stage('configration Ec2 and give the test page'){
             steps{
-                    echo ">>>>>  stage 'SCM' is commplete............"
-                    echo ">>>>>  running from github is commplete............"
-                   }  }
+                    sh '''
+                            ansible-playbook -i /home/ubuntu/Devops-Project/inventory \
+                                                  /home/ubuntu/Devops-Project/playbook.yml \
+                                                     --private-key Devops-Project/test.pem \
+                                                        -u ubuntu -v
+                                                                                '''
+                  }  }
 
         stage('Build'){
             steps{
                     echo ">>>>>  stage 'Build' is commplete.........."
-                    echo ">>>>>  running from github is commplete............"
                   }
                         }
          stage('Test'){
             steps{
-                    echo ">>>>>  stage 'Test' is commplete..........."   
-                    echo ">>>>>  running from github is commplete............"
+                    echo ">>>>>  stage 'Test' is commplete..........."                
                   }
                        }   
          stage('Deploy'){
             steps{
-                    echo ">>>>>  stage 'Deploy' is commplete........."         
-                    echo ">>>>>  running from github is commplete............"
+                    echo ">>>>>  stage 'Deploy' is commplete........."                 
                   }
                        }                                   
         }
-}
+
+    }
